@@ -1,18 +1,24 @@
-# Login.feature
-
 Feature: Login
 
-Scenario: Login with correct email and password
-  Given I visit the login page
-  When I login with correct email and password
-  Then I should be logged in
+    Scenario: Success Login with the correct email and password
+        Given I am on the Login Page
+        When I click Sign In button
+        When I enter "ladykaalisa@gmail.com" username
+        When I enter "1Raduga1" password
+        When I click Login button
+        Then I expect to be on Garage Page
 
-Scenario: Login with empty fields
-  Given I visit the login page
-  When I login with empty fields
-  Then the Login button should be disabled
 
-Scenario: Login with non-existent email and password
-  Given I visit the login page
-  When I login with non-existent email and password
-  Then I should see an error message
+    Scenario: Success Login with empty fields
+        Given I am on the Login Page
+        When I click Sign In button
+        Then I expect to button Login be disabled
+
+
+    Scenario: Success Login with non-existent login and password
+        Given I am on the Login Page
+        When I click Sign In button
+        When I enter "ladykaalisa@gmail.ua" username
+        When I enter "1Raduga0" password
+        When I click Login button
+        Then I expect to error message

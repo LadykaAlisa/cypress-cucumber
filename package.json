@@ -1,7 +1,6 @@
 {
   "name": "cypress-cucumber",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,5 +25,6 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^20.0.5",
     "reflect-metadata": "^0.2.2"
-  }
+  },
+  "description": ""
 }

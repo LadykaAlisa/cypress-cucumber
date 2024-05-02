@@ -1,17 +1,20 @@
-# HomePage.feature
-
 Feature: Home Page
 
-Scenario: Check presence of social media icons
-  Given I visit the home page
-  Then I should see 5 social media icons
 
-Scenario: Open registration form after clicking Sign Up
-  Given I visit the home page
-  When I click on Sign Up
-  Then I should see the registration form
+    Scenario: Success 5 icons of social networks are present
+        Given I am on the Login Page
+        Then I expect to be 5 icons of social networks are present
 
-Scenario: Open login form after clicking Sign In
-  Given I visit the home page
-  When I click on Sign In
-  Then I should see the login form
+    Scenario: Success after clicking Sign Up the registration form opens
+        Given I am on the Login Page
+        When I click on Sign Up
+        Then I should see the registration form
+
+        
+    Scenario: Success after clicking Sign In the login form opens
+        Given I am on the Login Page
+        When I click on Sign In
+        Then I should see the login form
+
+
+

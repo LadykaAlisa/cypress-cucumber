@@ -1,36 +1,30 @@
-/// <reference types="cypress" />
-
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-Given('I visit the login page', () => {
-  cy.visit('/login');
+Given('I am on the Login Page', () => {
+  cy.visit ('https://qauto.forstudy.space/' , {
+    auth: {
+       username: 'guest',
+       password: 'welcome2qauto' ,
+   },
+    })
 });
 
-When('I login with correct email and password', () => {
-  cy.get('#email').type('example@example.com');
-  cy.get('#password').type('password123');
-  cy.get('.login-button').click();
+Then('I expect to be 5 icons of social networks are present', () => {
+  cy.get('span.socials_icon').should('have.length', 5);
 });
 
-Then('I should be logged in', () => {
-  cy.url().should('include', '/profile');
+When('I click on Sign Up', () => {
+  cy.get('.hero-descriptor_btn').click();
 });
 
-When('I login with empty fields', () => {
-  // Не заповнюємо поля
-  cy.get('.login-button').click();
+Then('I should see the registration form', () => {
+  cy.get('.modal-header').invoke('text').should('eq', 'Registration×');
 });
 
-Then('the Login button should be disabled', () => {
-  cy.get('.login-button').should('be.disabled');
-});
+When('I click on Sign In', () => {
+  cy.get('.header_right > .btn').click();
+})
 
-When('I login with non-existent email and password', () => {
-  cy.get('#email').type('nonexistent@example.com');
-  cy.get('#password').type('wrongpassword');
-  cy.get('.login-button').click();
-});
-
-Then('I should see an error message', () => {
-  cy.get('.error-message').should('be.visible');
+Then('I should see the login form', () => {
+  cy.get('.modal-header').invoke('text').should('eq', 'Log in×');
 });
